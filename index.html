@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Reyaz Shaik — Data Analyst | SQL · dbt · Snowflake · Power BI</title>
+<meta name="description" content="Data Analyst with 2+ years building SQL/dbt pipelines, Snowflake data warehouses, and Power BI dashboards for credit risk and financial analytics. F-1 OPT STEM-eligible.">
+<meta name="keywords" content="Data Analyst, SQL, dbt, Snowflake, Power BI, Airflow, AWS, Python, Business Intelligence, ETL, Data Engineering, Credit Risk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090E;--bg2:#0F1219;--bg3:#161B27;--card:#1A2035;--navy:#1A3A5C;--gold:#D4A843;--gold2:#F0C96A;--blue:#4A90D9;--cyan:#2ABFBF;--text:#E8EDF5;--muted:#8896B0;--dim:#3D4B63;--border:rgba(212,168,67,.15);--b2:rgba(74,144,217,.12);--mono:'DM Mono',monospace;--serif:'Fraunces',serif;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(74,144,217,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,.022) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 7%;background:rgba(8,9,14,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.67rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-family:var(--mono);font-size:.67rem;padding:8px 20px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:3px;transition:all .3s;letter-spacing:.1em}
+.nav-cta:hover{background:var(--gold);color:#08090E}
+
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 440px;align-items:center;gap:56px;padding:120px 7% 80px;position:relative;overflow:hidden}
+.hero-l{position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--mono);font-size:.67rem;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;opacity:0;animation:up .8s .2s forwards}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero-name{font-family:var(--serif);font-size:clamp(3rem,5.5vw,6rem);font-weight:900;line-height:.98;margin-bottom:18px;opacity:0;animation:up .9s .35s forwards}
+.hero-name .l1{display:block;color:var(--text)}
+.hero-name .l2{display:block;background:linear-gradient(120deg,var(--gold) 0%,var(--gold2) 45%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.hero-desc{font-size:1rem;color:var(--muted);max-width:500px;margin-bottom:32px;font-weight:300;opacity:0;animation:up .9s .5s forwards;line-height:1.8}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:40px;opacity:0;animation:up .9s .62s forwards}
+.htag{font-family:var(--mono);font-size:.63rem;padding:5px 11px;border:1px solid var(--b2);border-radius:2px;color:var(--cyan);background:rgba(42,191,191,.04);letter-spacing:.06em;transition:all .3s}
+.htag:hover{border-color:var(--cyan);background:rgba(42,191,191,.1)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:up .9s .75s forwards}
+.btn-g{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#08090E;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .35s}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,168,67,.35)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border:1px solid var(--dim);color:var(--muted);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .35s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+.hero-r{opacity:0;animation:fadeIn 1.2s .9s forwards}
+.viz-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:26px;position:relative;overflow:hidden}
+.viz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan))}
+.viz-title{font-family:var(--mono);font-size:.63rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.viz-title::before{content:'●';color:var(--gold);font-size:.5rem}
+.pipeline{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.pipe-row{display:flex;align-items:center}
+.pnode{font-family:var(--mono);font-size:.65rem;padding:6px 12px;border-radius:4px;white-space:nowrap;text-align:center;min-width:82px}
+.pnode.s{background:rgba(74,144,217,.12);border:1px solid rgba(74,144,217,.28);color:#4A90D9}
+.pnode.p{background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.22);color:var(--gold)}
+.pnode.o{background:rgba(42,191,191,.1);border:1px solid rgba(42,191,191,.22);color:var(--cyan)}
+.parr{font-size:.65rem;color:var(--dim);padding:0 5px;flex-shrink:0}
+.viz-hr{border:none;border-top:1px solid var(--dim);margin:16px 0}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--card);border-radius:6px;padding:11px 13px;border:1px solid rgba(255,255,255,.04)}
+.kpi-n{font-family:var(--serif);font-size:1.65rem;font-weight:700;color:var(--gold);line-height:1}
+.kpi-l{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:4px}
+.status{display:flex;align-items:center;gap:7px;margin-top:14px;padding:9px 13px;background:rgba(42,191,191,.05);border:1px solid rgba(42,191,191,.14);border-radius:4px}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;flex-shrink:0}
+.stxt{font-family:var(--mono);font-size:.6rem;color:var(--cyan);letter-spacing:.07em}
+
+section{position:relative;z-index:1;padding:96px 7%}
+section.alt{background:var(--bg2)}
+.s-label{font-family:var(--mono);font-size:.63rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:10px}
+.s-label::before{content:'';width:22px;height:1px;background:var(--gold)}
+.s-title{font-family:var(--serif);font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;line-height:1.15;margin-bottom:52px;color:var(--text)}
+.s-title em{font-style:italic;color:var(--gold)}
+
+#stats{background:linear-gradient(135deg,#0D1829 0%,#080F1A 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 7%}
+.stats-row{display:flex;justify-content:space-around;flex-wrap:wrap;gap:36px}
+.stat{text-align:center}
+.stat-n{font-family:var(--serif);font-size:2.8rem;font-weight:900;color:var(--gold);display:block;line-height:1}
+.stat-l{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;margin-top:6px;display:block}
+
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-text p{color:var(--muted);font-size:.98rem;margin-bottom:16px;font-weight:300}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-text blockquote{border-left:2px solid var(--gold);padding-left:16px;margin:24px 0;font-style:italic;color:var(--muted);font-size:.94rem}
+.sk-wrap{display:flex;flex-direction:column;gap:14px}
+.sk-group{border:1px solid var(--b2);border-radius:8px;padding:18px 20px;background:rgba(74,144,217,.03);transition:all .35s}
+.sk-group:hover{border-color:rgba(74,144,217,.28);background:rgba(74,144,217,.06);transform:translateX(4px)}
+.sk-cat{font-family:var(--mono);font-size:.61rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+.sk-pills{display:flex;flex-wrap:wrap;gap:6px}
+.sk-pill{font-family:var(--mono);font-size:.65rem;padding:3px 9px;background:var(--bg3);border:1px solid var(--dim);border-radius:3px;color:var(--text);transition:all .25s}
+.sk-pill:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.comp-item{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:13px 15px;font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.04em;display:flex;align-items:center;gap:8px;transition:all .3s}
+.comp-item::before{content:'▸';color:var(--gold);font-size:.68rem;flex-shrink:0}
+.comp-item:hover{border-color:var(--gold);color:var(--text);background:rgba(212,168,67,.05)}
+
+.exp-wrap{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:200px 38px 1fr;padding-bottom:52px}
+.exp-item:last-child{padding-bottom:0}
+.exp-meta{text-align:right;padding-top:2px}
+.exp-dates{font-family:var(--mono);font-size:.66rem;color:var(--gold);letter-spacing:.06em;display:block;margin-bottom:4px}
+.exp-loc{font-family:var(--mono);font-size:.6rem;color:var(--dim);display:block}
+.exp-line{display:flex;flex-direction:column;align-items:center}
+.exp-dot{width:11px;height:11px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);box-shadow:0 0 12px var(--gold);flex-shrink:0;margin-top:3px;z-index:1}
+.exp-conn{flex:1;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(212,168,67,.08));margin-top:4px}
+.exp-co{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.exp-role{font-family:var(--mono);font-size:.66rem;color:var(--cyan);letter-spacing:.1em;margin-bottom:16px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.exp-ul li{display:flex;gap:11px;color:var(--muted);font-size:.91rem;font-weight:300;line-height:1.65}
+.exp-ul li::before{content:'▸';color:var(--gold);flex-shrink:0;margin-top:2px;font-size:.7rem}
+.exp-ul strong{color:var(--text);font-weight:500}
+
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px;transition:all .4s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.proj-card:hover{transform:translateY(-7px);border-color:rgba(212,168,67,.32);box-shadow:0 22px 56px rgba(0,0,0,.5)}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-num{font-family:var(--mono);font-size:.58rem;color:var(--dim);letter-spacing:.2em;margin-bottom:12px}
+.proj-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3}
+.proj-impact{font-family:var(--mono);font-size:.62rem;color:var(--gold);background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.18);border-radius:3px;padding:4px 9px;display:inline-block;margin-bottom:12px;letter-spacing:.05em}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.proj-tag{font-family:var(--mono);font-size:.59rem;padding:3px 7px;background:rgba(42,191,191,.06);border:1px solid rgba(42,191,191,.16);border-radius:2px;color:var(--cyan);letter-spacing:.05em}
+.proj-ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;flex:1}
+.proj-ul li{display:flex;gap:9px;color:var(--muted);font-size:.86rem;font-weight:300;line-height:1.55}
+.proj-ul li::before{content:'·';color:var(--gold);flex-shrink:0;font-size:1.1rem;line-height:1.2}
+.proj-ul strong{color:var(--text);font-weight:500}
+.proj-link{font-family:var(--mono);font-size:.64rem;color:var(--blue);text-decoration:none;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--dim);padding-top:14px;margin-top:auto;transition:color .3s}
+.proj-link:hover{color:var(--gold)}
+.proj-link::after{content:'→'}
+
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:all .3s}
+.edu-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.edu-deg{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.edu-school{font-size:.91rem;color:var(--muted);margin-bottom:8px}
+.edu-meta{font-family:var(--mono);font-size:.63rem;color:var(--gold);letter-spacing:.07em}
+.cert-row{display:flex;gap:14px;flex-wrap:wrap}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px 22px;flex:1;min-width:230px;display:flex;align-items:flex-start;gap:12px;transition:all .3s}
+.cert-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.cert-icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.cert-name{font-size:.91rem;font-weight:500;color:var(--text);margin-bottom:3px}
+.cert-meta{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.07em}
+.cert-link{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:.6rem;color:var(--cyan);text-decoration:none;transition:color .3s}
+.cert-link:hover{color:var(--gold)}
+
+#contact{text-align:center}
+.contact-sub{color:var(--muted);font-size:.98rem;max-width:480px;margin:0 auto 40px;font-weight:300}
+.otw{background:linear-gradient(135deg,rgba(212,168,67,.07),rgba(42,191,191,.04));border:1px solid rgba(212,168,67,.18);border-radius:8px;padding:16px 26px;display:inline-flex;align-items:center;gap:14px;margin-bottom:36px}
+.otw-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s infinite}
+.otw-txt{font-family:var(--mono);font-size:.7rem;color:var(--text);letter-spacing:.06em}
+.otw-txt span{color:var(--gold)}
+.contact-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.contact-btn{display:flex;align-items:center;gap:9px;padding:13px 24px;border:1px solid var(--border);border-radius:6px;color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;transition:all .3s;background:var(--card)}
+.contact-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.visa-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.66rem;color:var(--dim);letter-spacing:.09em;background:var(--bg3);border:1px solid var(--dim);border-radius:100px;padding:6px 18px}
+.visa-tag::before{content:'⚡';color:var(--gold)}
+
+footer{background:#030407;border-top:1px solid var(--dim);padding:22px 7%;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.07em;flex-wrap:wrap;gap:10px}
+footer a{color:var(--dim);text-decoration:none;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,.4)}50%{box-shadow:0 0 0 6px rgba(212,168,67,0)}}
+.reveal{opacity:0;transform:translateY(32px);transition:all .75s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
+
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr}
+  .hero-r{display:none}
+  .about-wrap,.proj-grid,.edu-grid,.exp-item{grid-template-columns:1fr}
+  .comp-grid{grid-template-columns:repeat(2,1fr)}
+  .exp-item{display:block;padding-bottom:40px;border-left:1px solid rgba(212,168,67,.2);padding-left:20px;margin-left:6px}
+  .exp-meta{display:none}
+  .exp-line{display:none}
+  section{padding:64px 5%}
+  nav{padding:13px 5%}
+  .nav-links{gap:16px}
+  .s-title{margin-bottom:36px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MRS · Data Analyst</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:reyaz.shaik.analyst@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-l">
+    <div class="hero-eyebrow">Data Analyst · Open to Opportunities · May 2026</div>
+    <h1 class="hero-name">
+      <span class="l1">Mohammad</span>
+      <span class="l2">Reyaz Shaik</span>
+    </h1>
+    <p class="hero-desc">
+      Building <strong>reliable data pipelines, BI dashboards, and analytics layers</strong> that power real business decisions — from credit risk underwriting to university grant reporting.<br><br>
+      <strong>2+ years</strong> in production · <strong>75K+ loan records</strong> modeled · <strong>30% faster reporting</strong> delivered
+    </p>
+    <div class="hero-tags">
+      <span class="htag">SQL</span><span class="htag">dbt Core</span><span class="htag">Snowflake</span>
+      <span class="htag">Power BI</span><span class="htag">Apache Airflow</span><span class="htag">AWS</span>
+      <span class="htag">Python</span><span class="htag">Great Expectations</span><span class="htag">Star Schema</span><span class="htag">ETL/ELT</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-g">View My Work</a>
+      <a href="https://github.com/Reyazgitwork" target="_blank" class="btn-o">GitHub ↗</a>
+      <a href="https://linkedin.com/in/mohammad-reyaz-shaik" target="_blank" class="btn-o">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="viz-card">
+      <div class="viz-title">Production Data Stack</div>
+      <div class="pipeline">
+        <div class="pipe-row"><span class="pnode s">Raw Sources</span><span class="parr">──▶</span><span class="pnode p">dbt Staging</span><span class="parr">──▶</span><span class="pnode o">Marts / BI</span></div>
+        <div class="pipe-row"><span class="pnode s">Snowflake</span><span class="parr">──▶</span><span class="pnode p">Airflow DAG</span><span class="parr">──▶</span><span class="pnode o">Power BI</span></div>
+        <div class="pipe-row"><span class="pnode s">AWS S3</span><span class="parr">──▶</span><span class="pnode p">Glue/Athena</span><span class="parr">──▶</span><span class="pnode o">Dashboard</span></div>
+      </div>
+      <hr class="viz-hr">
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-n" id="c1">75K+</div><div class="kpi-l">Loan records</div></div>
+        <div class="kpi"><div class="kpi-n" id="c2">30%</div><div class="kpi-l">Faster reports</div></div>
+        <div class="kpi"><div class="kpi-n" id="c3">5+</div><div class="kpi-l">Teams served</div></div>
+        <div class="kpi"><div class="kpi-n" id="c4">500K+</div><div class="kpi-l">AWS records</div></div>
+      </div>
+      <div class="status"><div class="sdot"></div><span class="stxt">dbt tests passing · Great Expectations: Active · Airflow: Healthy</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="stats">
+  <div class="stats-row reveal">
+    <div class="stat"><span class="stat-n" style="color:var(--gold)">75K+</span><span class="stat-l">Loan records in dbt / Snowflake</span></div>
+    <div class="stat"><span class="stat-n" style="color:var(--cyan)">30%</span><span class="stat-l">Reporting cycle reduction</span></div>
+    <div class="stat"><span class="stat-n" style="color:var(--gold)">500K+</span><span class="stat-l">Records in AWS pipeline</span></div>
+    <div class="stat"><span class="stat-n" style="color:var(--cyan)">20%</span><span class="stat-l">Data prep time saved</span></div>
+    <div class="stat"><span class="stat-n" style="color:var(--gold)">8+</span><span class="stat-l">Stakeholders served</span></div>
+  </div>
+</div>
+
+<section id="about" class="alt">
+  <div class="s-label">01 — Profile</div>
+  <h2 class="s-title">The analyst behind<br>the <em>numbers</em></h2>
+  <div class="about-wrap reveal">
+    <div class="about-text">
+      <p>I'm a <strong>Data Analyst</strong> who builds the infrastructure that makes good decisions possible — SQL pipelines that don't break, dbt models that stay clean, and Power BI dashboards that non-technical stakeholders actually trust.</p>
+      <p>At <strong>Yubi (CredAvenue)</strong>, I owned the end-to-end analytics layer for a credit risk platform serving 75K+ loan records — from raw ingestion through Snowflake transformations to the Power BI dashboards underwriters checked every morning.</p>
+      <p>At <strong>CSUSB</strong>, I've translated messy institutional financial data into self-service analytics for 8 cross-functional stakeholders, built automated quality checks, and delivered dashboards used in grant funding submissions.</p>
+      <blockquote>"I don't just build pipelines — I build trust in data, one test and one dashboard at a time."</blockquote>
+      <p>Graduating <strong>May 2026</strong> (M.S., GPA 3.8). Seeking Data Analyst roles in financial services, tech, or analytics-driven organizations. <strong>F-1 OPT STEM-eligible · Open to H-1B sponsorship.</strong></p>
+    </div>
+    <div class="sk-wrap">
+      <div class="sk-group"><div class="sk-cat">SQL & Data Transformation</div><div class="sk-pills"><span class="sk-pill">Advanced SQL</span><span class="sk-pill">CTEs</span><span class="sk-pill">Window Functions</span><span class="sk-pill">Query Optimization</span><span class="sk-pill">dbt Core</span><span class="sk-pill">Incremental Models</span><span class="sk-pill">Snapshots & Macros</span></div></div>
+      <div class="sk-group"><div class="sk-cat">Cloud, Warehousing & Orchestration</div><div class="sk-pills"><span class="sk-pill">Snowflake</span><span class="sk-pill">AWS S3</span><span class="sk-pill">Glue</span><span class="sk-pill">Athena</span><span class="sk-pill">Lambda</span><span class="sk-pill">Apache Airflow</span><span class="sk-pill">ETL/ELT</span><span class="sk-pill">DuckDB</span></div></div>
+      <div class="sk-group"><div class="sk-cat">BI, Quality & Analytics</div><div class="sk-pills"><span class="sk-pill">Power BI</span><span class="sk-pill">DAX</span><span class="sk-pill">Star Schema</span><span class="sk-pill">Great Expectations</span><span class="sk-pill">dbt Tests</span><span class="sk-pill">Python</span><span class="sk-pill">Pandas</span><span class="sk-pill">Scikit-learn</span><span class="sk-pill">Excel</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="competencies">
+  <div class="s-label">02 — Core Competencies</div>
+  <h2 class="s-title">What I bring to<br><em>every team</em></h2>
+  <div class="comp-grid reveal">
+    <div class="comp-item">Data Analysis & Reporting</div>
+    <div class="comp-item">SQL Query Optimization</div>
+    <div class="comp-item">ETL / ELT Pipeline Design</div>
+    <div class="comp-item">Data Warehousing</div>
+    <div class="comp-item">dbt Core Modeling</div>
+    <div class="comp-item">Power BI Dashboard Design</div>
+    <div class="comp-item">Star Schema & Dim Modeling</div>
+    <div class="comp-item">Data Quality & Governance</div>
+    <div class="comp-item">Airflow Orchestration</div>
+    <div class="comp-item">Business Intelligence</div>
+    <div class="comp-item">KPI Development</div>
+    <div class="comp-item">Stakeholder Communication</div>
+    <div class="comp-item">Cross-functional Collaboration</div>
+    <div class="comp-item">Ad-hoc Analysis</div>
+    <div class="comp-item">Data Storytelling</div>
+    <div class="comp-item">Credit Risk Analytics</div>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="s-label">03 — Experience</div>
+  <h2 class="s-title">Where I've delivered<br><em>in production</em></h2>
+  <div class="exp-wrap">
+    <div class="exp-item reveal">
+      <div class="exp-meta"><span class="exp-dates">Jan 2024 – Apr 2026</span><span class="exp-loc">San Bernardino, CA</span></div>
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-conn"></div></div>
+      <div>
+        <div class="exp-co">California State University, San Bernardino</div>
+        <div class="exp-role">Data Analyst (Graduate Research)</div>
+        <ul class="exp-ul">
+          <li>Architected <strong>star schema data models across 5+ institutional financial datasets</strong> in dbt Core — enabling self-service BI for 8 cross-functional stakeholders and eliminating ad-hoc requests entirely, saving an estimated 10+ analyst hours per week.</li>
+          <li>Engineered <strong>SQL/dbt transformation pipelines</strong> (CTEs, window functions, incremental models) — cutting manual data preparation time <strong>20%</strong> and accelerating grant reporting cycles.</li>
+          <li>Designed and delivered <strong>Power BI dashboards</strong> adopted by university administration for budget planning and external grant funding submissions — translating complex multi-source datasets into executive-ready insights.</li>
+          <li>Built automated <strong>dbt schema test suites and data governance validation rules</strong> catching upstream anomalies before reaching the reporting layer — ensuring audit-ready, compliance-grade outputs.</li>
+          <li>Collaborated with 3+ departments to gather business requirements, define KPI frameworks, and deliver reporting solutions aligned to institutional decision-making.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta"><span class="exp-dates">Aug 2022 – Dec 2023</span><span class="exp-loc">Chennai, India</span></div>
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-conn"></div></div>
+      <div>
+        <div class="exp-co">Yubi (CredAvenue)</div>
+        <div class="exp-role">Data Analyst — Credit Risk & Financial Analytics</div>
+        <ul class="exp-ul">
+          <li>Architected <strong>Snowflake + dbt analytics layer</strong> across 75K+ loan records — establishing a single source of truth for credit risk, loan approval, and portfolio management, partnering daily with underwriting teams to align data to business decisions.</li>
+          <li>Developed production SQL/dbt models computing <strong>delinquency rates, NPA ratios, and portfolio health KPIs</strong> — surfaced via Power BI dashboards reviewed by 10+ credit risk stakeholders every business day.</li>
+          <li>Reduced end-to-end reporting turnaround <strong>30%</strong> via incremental dbt pipelines integrating 3+ upstream systems — eliminating ~4 hours of daily manual reconciliation and freeing analysts for higher-value ad-hoc analysis.</li>
+          <li>Deployed <strong>Great Expectations data validation framework</strong> to enforce quality SLAs — intercepting upstream anomalies before reaching 5+ downstream teams and ensuring trustworthy, governance-compliant BI outputs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="s-label">04 — Projects</div>
+  <h2 class="s-title">Built outside<br><em>the day job</em></h2>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-num">PROJECT / 01</div>
+      <div class="proj-name">AWS E-Commerce Analytics Pipeline</div>
+      <div class="proj-impact">↑ 500K+ records · Churn model · End-to-end automation</div>
+      <div class="proj-tags"><span class="proj-tag">S3</span><span class="proj-tag">Glue</span><span class="proj-tag">Athena</span><span class="proj-tag">Lambda</span><span class="proj-tag">Python</span><span class="proj-tag">Power BI</span><span class="proj-tag">Scikit-learn</span></div>
+      <ul class="proj-ul">
+        <li><strong>Problem:</strong> e-commerce team lacked scalable reporting and churn visibility. Built end-to-end cloud pipeline (S3→Glue→Athena→Lambda) processing 500K+ records with star schema modeling.</li>
+        <li>Engineered <strong>Random Forest churn prediction model</strong> scoring customers by retention risk; high-value at-risk segments surfaced in Power BI to drive targeted retention decisions.</li>
+        <li>Full pipeline automation with error handling and monitoring — reducing time-to-insight from days to near-real-time.</li>
+      </ul>
+      <a href="https://github.com/Reyazgitwork/aws-ecommerce-analytics-pipeline" target="_blank" class="proj-link">github.com/Reyazgitwork/aws-ecommerce-analytics-pipeline</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-num">PROJECT / 02</div>
+      <div class="proj-name">Credit Risk Analytics Pipeline</div>
+      <div class="proj-impact">↑ 75K+ records · Audit-ready KPIs · Airflow orchestrated</div>
+      <div class="proj-tags"><span class="proj-tag">dbt</span><span class="proj-tag">Airflow</span><span class="proj-tag">SQL</span><span class="proj-tag">Python</span><span class="proj-tag">DuckDB</span><span class="proj-tag">Snowflake-compatible</span></div>
+      <ul class="proj-ul">
+        <li>Modular dbt pipeline <strong>(staging→intermediate→marts)</strong> on 75K+ loan records computing delinquency rate, NPA ratio, and portfolio health KPIs with comprehensive dbt quality tests.</li>
+        <li>Designed <strong>Airflow DAG</strong> orchestrating full workflow (seed→run→test) with automated failure alerting and task dependencies for reliable daily execution.</li>
+        <li>Snowflake-compatible architecture built on DuckDB — demonstrating production data warehouse design patterns and cloud-scale readiness.</li>
+      </ul>
+      <a href="https://github.com/Reyazgitwork/credit-risk-dbt-pipeline" target="_blank" class="proj-link">github.com/Reyazgitwork/credit-risk-dbt-pipeline</a>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="alt">
+  <div class="s-label">05 — Education & Credentials</div>
+  <h2 class="s-title">Academic foundation +<br><em>certified skills</em></h2>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-deg">M.S. Computer and Information Sciences</div>
+      <div class="edu-school">California State University, San Bernardino</div>
+      <div class="edu-meta">GPA: 3.8  ·  Expected May 2026</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">B.Tech. Electronics & Communication Engineering</div>
+      <div class="edu-school">Vasireddy Venkatadri Institute of Technology</div>
+      <div class="edu-meta">GPA: 3.75  ·  June 2022</div>
+    </div>
+  </div>
+  <div class="cert-row reveal">
+    <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">Google Data Analytics Professional Certificate</div><div class="cert-meta">Google / Coursera · 2023</div><a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="cert-link">Verify credential ↗</a></div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">Advanced SQL Query Optimization</div><div class="cert-meta">HackerRank · 2023</div><a href="https://www.hackerrank.com/certificates" target="_blank" class="cert-link">Verify credential ↗</a></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="s-label">06 — Contact</div>
+  <h2 class="s-title">Ready to build<br><em>something great together</em></h2>
+  <p class="contact-sub">Actively seeking Data Analyst, BI Analyst, and Analytics roles. Available May 2026 — open to conversations now.</p>
+  <div class="otw reveal"><div class="otw-dot"></div><span class="otw-txt">Open to work · <span>F-1 OPT STEM-eligible</span> · Open to H-1B Sponsorship · Open to relocation</span></div>
+  <div class="contact-grid reveal">
+    <a href="mailto:reyaz.shaik.analyst@gmail.com" class="contact-btn"><span>✉</span> reyaz.shaik.analyst@gmail.com</a>
+    <a href="https://linkedin.com/in/mohammad-reyaz-shaik" target="_blank" class="contact-btn"><span>in</span> LinkedIn Profile</a>
+    <a href="https://github.com/Reyazgitwork" target="_blank" class="contact-btn"><span>⌥</span> GitHub Portfolio</a>
+    <a href="tel:+19094027358" class="contact-btn"><span>☎</span> (909) 402-7358</a>
+  </div>
+  <div class="visa-tag reveal">F-1 OPT STEM-eligible · Open to H-1B Sponsorship · San Bernardino, CA</div>
+</section>
+
+<footer>
+  <span>© 2026 Mohammad Reyaz Shaik — Data Analyst</span>
+  <span><a href="mailto:reyaz.shaik.analyst@gmail.com">Email</a> · <a href="https://linkedin.com/in/mohammad-reyaz-shaik" target="_blank">LinkedIn</a> · <a href="https://github.com/Reyazgitwork" target="_blank">GitHub</a></span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%5)*.08+'s';obs.observe(el)});
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.querySelectorAll('section[id]').forEach(s=>{
+    if(y>=s.offsetTop-130){
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        a.style.color=a.getAttribute('href')==='#'+s.id?'var(--gold)':'';
+      });
+    }
+  });
+},{passive:true});
+</script>
+</body>
+</html>
