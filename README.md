@@ -5,7 +5,7 @@
 I build the dashboards leadership actually opens every morning, and the ETL pipelines that keep the numbers in them accurate. 4+ years across supply chain, credit risk, and financial reporting.
 
 🔗 **Portfolio:** [reyazgitwork.github.io](https://reyazgitwork.github.io)
-💼 **LinkedIn:** [linkedin.com/in/mohammadreyaz-shaik](https://www.linkedin.com/in/mohammadreyaz-shaik)
+💼 **LinkedIn:** [linkedin.com/in/mohammad-reyaz-shaik](https://www.linkedin.com/in/mohammad-reyaz-shaik)
 📧 **Email:** reyaz.data@gmail.com
 📍 **Location:** San Bernardino, CA — open to relocation
 
@@ -26,7 +26,7 @@ I build the dashboards leadership actually opens every morning, and the ETL pipe
 
 ## Education
 
-- M.S., Computer and Information Sciences — California State University, San Bernardino (Expected May 2026)
+- M.S., Computer and Information Sciences — California State University, San Bernardino (Graduated May 2026)
 - B.Tech., Electronics and Communication Engineering — Vasireddy Venkatadri Institute of Technology (2017–2021)
 
 ## Work authorization
